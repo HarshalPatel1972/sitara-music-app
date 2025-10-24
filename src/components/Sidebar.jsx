@@ -15,8 +15,11 @@ const NavLinks = ({ handleClick }) => (
         key={item.name}
         href={item.to}
         onClick={() => handleClick && handleClick()}
-        className="flex flex-row justify-start items-center p-3 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-500 ease-out hover:translate-x-2 group"
+        className={`flex flex-row justify-start items-center p-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 ease-out hover:translate-x-2 group ${
+          item.name === 'Discover' ? 'text-white border-l-2 border-primary bg-white/5' : 'text-slate-500'
+        } hover:text-white hover:bg-white/5 rounded-r-xl`}
       >
+
         <item.icon className="w-5 h-5 mr-4 group-hover:text-primary transition-colors" />
         {item.name}
       </a>
