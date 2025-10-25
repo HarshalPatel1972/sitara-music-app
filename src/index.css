@@ -14,5 +14,15 @@
   body {
     @apply bg-[#020617] text-slate-50 antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    @apply tracking-tight font-bold text-white;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   }
 }
+
