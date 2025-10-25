@@ -9,8 +9,9 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   return (
-    // UPDATED: Added a gradient background class
-    <div className="relative flex bg-gradient-to-br from-background to-primary">
+    <div className="relative flex bg-background min-h-screen">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_70%)] pointer-events-none" />
+
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Searchbar />
