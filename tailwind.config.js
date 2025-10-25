@@ -4,16 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#030712", // A very dark, near-black blue
-        primary: "#1f2937", // A slightly lighter dark gray for surfaces
-        secondary: "#374151", // A medium gray for borders/dividers
+        background: "#020617",
+        surface: "#0f172a",
+        primary: "#8b5cf6",
+        secondary: "#ec4899",
         accent: {
-          DEFAULT: "#8b5cf6", // A vibrant violet for highlights
-          hover: "#7c3aed", // A slightly darker violet for hover states
+          DEFAULT: "#38bdf8",
+          glow: "#06b6d4",
         },
-        "text-primary": "#f9fafb", // Off-white for main text
-        "text-secondary": "#9ca3af", // Gray for secondary text
+        muted: "#64748b",
       },
+      backgroundImage: {
+        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)',
+      }
+
     },
   },
   plugins: [],
