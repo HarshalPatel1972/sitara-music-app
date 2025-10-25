@@ -24,5 +24,24 @@
   .text-glow {
     text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full border-2 border-transparent bg-clip-content;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 
