@@ -46,7 +46,18 @@ const Sidebar = () => {
             ))}
           </div>
         </div>
+        
+        <div className="mt-auto pt-10 flex items-center gap-3 border-t border-white/5">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary p-[1px]">
+            <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center font-black text-xs text-white">HP</div>
+          </div>
+          <div className="flex flex-col">
+            <p className="text-[11px] font-black text-white">Harshal Patel</p>
+            <p className="text-[9px] font-black uppercase tracking-widest text-primary">Pro Account</p>
+          </div>
+        </div>
       </div>
+
 
 
       <div className="absolute md:hidden block top-6 right-3 z-50">
