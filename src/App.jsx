@@ -13,9 +13,12 @@ const App = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_70%)] pointer-events-none" />
 
       <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Searchbar />
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll flex xl:flex-row flex-col-reverse">
+      <div className="flex-1 flex flex-col bg-background/30 backdrop-blur-sm">
+        <header className="h-28 flex items-center">
+          <Searchbar />
+        </header>
+        <div className="px-10 h-[calc(100vh-112px)] overflow-y-auto custom-scrollbar flex xl:flex-row flex-col-reverse">
+
           <div className="flex-1 h-fit pb-40">
             <Discover />
           </div>
