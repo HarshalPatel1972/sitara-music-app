@@ -19,9 +19,11 @@ const NavLinks = () => (
     {links.map((item) => (
       <a
         key={item.name}
+
         href={item.to}
-        className="flex flex-row justify-start items-center p-3 text-sm font-black uppercase tracking-widest text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300 group"
+        className="flex flex-row justify-start items-center p-3 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-500 ease-out hover:translate-x-2 group"
       >
+
         <item.icon className="w-5 h-5 mr-4 group-hover:text-primary transition-colors" />
         {item.name}
       </a>
