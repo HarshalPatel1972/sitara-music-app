@@ -15,14 +15,14 @@ const links = [
 ];
 
 const NavLinks = () => (
-  <div className="mt-10">
+  <div className="mt-12 space-y-2">
     {links.map((item) => (
       <a
         key={item.name}
         href={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-text-secondary hover:text-accent"
+        className="flex flex-row justify-start items-center p-3 text-sm font-black uppercase tracking-widest text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300 group"
       >
-        <item.icon className="w-6 h-6 mr-2" />
+        <item.icon className="w-5 h-5 mr-4 group-hover:text-primary transition-colors" />
         {item.name}
       </a>
     ))}
@@ -30,10 +30,11 @@ const NavLinks = () => (
 );
 
 const Sidebar = () => (
-  <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-primary">
-    <h1 className="text-white text-3xl font-bold text-center">Sitara</h1>
+  <div className="md:flex hidden flex-col w-[260px] py-10 px-6 bg-background/50 backdrop-blur-xl border-r border-white/5">
+    <h1 className="text-white text-4xl font-black tracking-tighter text-center text-glow italic">Sitara</h1>
     <NavLinks />
   </div>
 );
+
 
 export default Sidebar;
