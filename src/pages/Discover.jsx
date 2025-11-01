@@ -26,11 +26,23 @@ const Discover = () => {
           <h2 className="font-black text-6xl text-white text-left tracking-tighter text-glow italic">
             Discover
           </h2>
-          <p className="text-slate-500 text-sm font-black uppercase tracking-[0.3em] mt-2">
-            Trending in Pop
-          </p>
+          <div className="flex flex-wrap gap-4 mt-8">
+            {['Pop', 'Rock', 'Jazz', 'Soul', 'Electronic', 'Hip-Hop'].map((genre) => (
+              <button
+                key={genre}
+                className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${
+                  genre === 'Pop' 
+                    ? 'bg-primary text-white border-primary shadow-[0_0_15px_rgba(139,92,246,0.4)]' 
+                    : 'bg-white/5 text-slate-500 border-white/5 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {genre}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
+
 
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
