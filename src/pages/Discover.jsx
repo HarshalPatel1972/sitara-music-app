@@ -45,11 +45,19 @@ const Discover = () => {
 
 
 
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         {data.map((song, i) => (
-          <SongCard key={song.id} song={song} i={i} data={data} />
+          <div 
+            key={song.id} 
+            className={`flex flex-col animate-slideup ${
+              i % 7 === 0 ? 'sm:col-span-2 lg:col-span-2' : ''
+            }`}
+          >
+            <SongCard song={song} i={i} data={data} />
+          </div>
         ))}
       </div>
+
     </div>
   );
 };
