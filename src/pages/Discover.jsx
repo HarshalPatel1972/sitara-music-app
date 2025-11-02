@@ -13,11 +13,17 @@ const Discover = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-        <h2 className="font-bold text-3xl text-text-primary text-left">
-          Discover Pop
-        </h2>
+      <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-16">
+        <div className="flex flex-col">
+          <h2 className="font-black text-6xl text-white text-left tracking-tighter text-glow italic">
+            Discover
+          </h2>
+          <p className="text-slate-500 text-sm font-black uppercase tracking-[0.3em] mt-2">
+            Trending in Pop
+          </p>
+        </div>
       </div>
+
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {data.map((song, i) => (
