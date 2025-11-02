@@ -1,15 +1,16 @@
 // src/pages/Discover.jsx
 import React from "react";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
-import SongCard from "../components/SongCard"; // <-- IMPORT
+import SongCard from "../components/SongCard";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 const Discover = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
 
-  if (isFetching)
-    return <p className="text-text-secondary">Loading songs...</p>;
-  if (error) return <p className="text-red-500">Error fetching songs.</p>;
-  if (!data) return <p className="text-text-secondary">No songs found.</p>;
+  if (isFetching) return <Loader title="Syncing with the charts..." />;
+  if (error) return <Error />;
+
 
   return (
     <div className="flex flex-col">
