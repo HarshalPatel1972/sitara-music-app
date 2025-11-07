@@ -29,15 +29,26 @@ const ArtistDetail = () => {
           <h2 className="text-2xl font-black text-white mb-8 italic">Popular Tracks</h2>
           <div className="space-y-4">
              {[1,2,3,4,5].map((i) => (
-               <div key={i} className="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group cursor-pointer">
+               <div key={i} className="flex items-center justify-between p-4 bg-white/5 hover:bg-slate-900/80 border border-transparent hover:border-white/10 rounded-2xl transition-all group cursor-pointer">
                  <div className="flex items-center gap-4">
-                   <span className="text-slate-600 font-black text-xs">{i}</span>
-                   <div className="w-12 h-12 rounded-lg bg-slate-800" />
-                   <p className="text-sm font-black text-white group-hover:text-primary transition-colors">Starboy</p>
+                   <span className="text-slate-600 font-black text-[10px] w-4">{i}</span>
+                   <div className="relative w-12 h-12">
+                     <div className="absolute inset-0 flex items-center justify-center bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg z-10">
+                        <div className="bg-white p-1.5 rounded-full">
+                          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-l-[6px] border-l-primary border-b-[4px] border-b-transparent ml-0.5" />
+                        </div>
+                     </div>
+                     <div className="w-full h-full rounded-lg bg-slate-800" />
+                   </div>
+                   <div>
+                     <p className="text-sm font-black text-white group-hover:text-primary transition-colors">Starboy</p>
+                     <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">2,450,123 Plays</p>
+                   </div>
                  </div>
-                 <p className="text-xs font-black text-slate-500 uppercase tracking-widest">3:50</p>
+                 <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">3:50</p>
                </div>
              ))}
+
           </div>
         </div>
 
