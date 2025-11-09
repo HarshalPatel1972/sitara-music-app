@@ -11,18 +11,23 @@ const ArtistDetail = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="relative w-full h-80 bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden mb-12">
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10" />
-        <div className="absolute bottom-10 left-10 z-20 flex items-end gap-8">
-          <div className="w-48 h-48 rounded-2xl bg-slate-800 shadow-2xl overflow-hidden">
-            {/* Artist Image Placeholder */}
+      <div className="relative w-full h-96 bg-slate-900/10 backdrop-blur-3xl border border-white/5 rounded-3xl overflow-hidden mb-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+        <div className="absolute bottom-12 left-12 z-20 flex items-end gap-10">
+          <div className="w-56 h-56 rounded-3xl bg-slate-800 shadow-2xl overflow-hidden border-2 border-white/10 p-1">
+             <div className="w-full h-full rounded-2xl bg-slate-900 flex items-center justify-center text-slate-700 font-black text-6xl italic">AS</div>
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-8xl font-black text-white tracking-tighter text-glow italic">Artist Name</h1>
-            <p className="text-slate-500 uppercase tracking-[0.4em] text-xs font-black mt-4">1.2M Monthly Listeners</p>
+          <div className="flex flex-col mb-4">
+            <h1 className="text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500 tracking-tighter text-glow italic leading-[0.8]">Artist Name</h1>
+            <div className="flex items-center gap-4 mt-8">
+               <p className="text-primary uppercase tracking-[0.4em] text-[10px] font-black animate-pulse">Live Now</p>
+               <span className="w-1 h-1 rounded-full bg-slate-800" />
+               <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-black">1,245,678 Monthly Listeners</p>
+            </div>
           </div>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="flex flex-col">
