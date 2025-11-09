@@ -61,7 +61,22 @@ const ArtistDetail = () => {
           </div>
         </div>
       </div>
+
+      <div className="mt-20">
+        <h2 className="text-2xl font-black text-white mb-8 italic">Related Artists</h2>
+        <div className="flex gap-8 overflow-x-auto pb-10 custom-scrollbar">
+          {['The Weeknd', 'Travis Scott', 'Future', 'Drake', 'Kanye West'].map((artist) => (
+            <div key={artist} className="flex flex-col items-center min-w-[140px] group cursor-pointer">
+              <div className="w-32 h-32 rounded-full bg-slate-900 border border-white/5 p-1 mb-4 group-hover:border-primary/50 transition-all group-hover:scale-105">
+                <div className="w-full h-full rounded-full bg-slate-800 overflow-hidden shadow-2xl" />
+              </div>
+              <p className="text-[11px] font-black text-slate-400 group-hover:text-white transition-colors uppercase tracking-widest">{artist}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
+
   );
 };
 
