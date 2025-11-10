@@ -10,6 +10,7 @@ import {
 import Controls from "./Controls";
 import Seekbar from "./Seekbar";
 import Track from "./Track";
+import VolumeBar from "./VolumeBar";
 
 const MusicPlayer = () => {
   const { activeSong, isPlaying, currentIndex, currentSongs } = useSelector(
@@ -18,7 +19,9 @@ const MusicPlayer = () => {
   const dispatch = useDispatch();
   const [duration, setDuration] = useState(0);
   const [appTime, setAppTime] = useState(0);
+  const [volume, setVolume] = useState(0.3);
   const audioRef = useRef(null);
+
 
   // --- THE MOST IMPORTANT DEBUG LOG ---
   // This will show us the entire structure of the song object we are receiving from Redux.
@@ -32,6 +35,12 @@ const MusicPlayer = () => {
 
   useEffect(() => {
     if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    if (audioRef.current) {
       if (isPlaying) {
         audioRef.current
           .play()
@@ -41,6 +50,7 @@ const MusicPlayer = () => {
       }
     }
   }, [isPlaying, audioSrc]);
+
 
   const handlePlayPause = () => {
     if (!activeSong?.hub) return;
@@ -93,7 +103,15 @@ const MusicPlayer = () => {
           onEnded={handleNextSong}
         />
       </div>
+      <VolumeBar
+        value={volume}
+        min="0"
+        max="1"
+        onChange={(event) => setVolume(event.target.value)}
+        setVolume={setVolume}
+      />
     </div>
+
   );
 };
 
