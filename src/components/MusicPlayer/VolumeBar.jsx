@@ -1,0 +1,24 @@
+import React from 'react';
+import { BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill } from 'react-icons/bs';
+
+const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
+  <div className="hidden lg:flex flex-1 items-center justify-end">
+    {value <= 1 && value > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} className="cursor-pointer" />}
+    {value <= 0.5 && value > 0 && <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} className="cursor-pointer" />}
+    {value === 0 && <BsFillVolumeMuteFill size={25} color="#FFF" onClick={() => setVolume(1)} className="cursor-pointer" />}
+    <input
+      type="range"
+      step="any"
+      value={value}
+      min={min}
+      max={max}
+      onChange={onChange}
+      className="2xl:w-40 lg:w-32 md:w-32 h-1 ml-2 appearance-none cursor-pointer bg-slate-800 rounded-full"
+      style={{
+        background: `linear-gradient(to right, #8b5cf6 0%, #8b5cf6 ${value * 100}%, #1e293b ${value * 100}%)`,
+      }}
+    />
+  </div>
+);
+
+export default VolumeBar;
