@@ -8,8 +8,10 @@ const Seekbar = ({ value, min, max, onInput, onChange }) => {
     `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(-2)}`;
 
   return (
-    <div className="hidden sm:flex flex-row items-center">
-      <p className="text-white">{value === 0 ? "0:00" : getTime(value)}</p>
+    <div className="hidden sm:flex flex-row items-center gap-4 w-full px-4">
+      <p className="text-slate-500 font-mono text-[10px] w-8 text-right">
+        {value === 0 ? "0:00" : getTime(value)}
+      </p>
       <input
         type="range"
         step="any"
@@ -17,16 +19,17 @@ const Seekbar = ({ value, min, max, onInput, onChange }) => {
         min={min}
         max={max}
         onInput={onInput}
-        onChange={onChange} // Add this to handle seeking
-        className="md:block w-24 md:w-56 2xl:w-96 h-1 mx-4 2xl:mx-6 rounded-lg appearance-none cursor-pointer"
+        onChange={onChange}
+        className="flex-1 h-1 rounded-full appearance-none cursor-pointer bg-slate-800 accent-primary"
         style={{
-          background: `linear-gradient(to right, #8b5cf6 ${
-            (value / max) * 100
-          }%, #4b5563 ${(value / max) * 100}%)`,
+          background: `linear-gradient(to right, #8b5cf6 0%, #ec4899 ${(value / max) * 100}%, #1e293b ${(value / max) * 100}%)`,
         }}
       />
-      <p className="text-white">{max === 0 ? "0:00" : getTime(max)}</p>
+      <p className="text-slate-500 font-mono text-[10px] w-8">
+        {max === 0 ? "0:00" : getTime(max)}
+      </p>
     </div>
+
   );
 };
 
