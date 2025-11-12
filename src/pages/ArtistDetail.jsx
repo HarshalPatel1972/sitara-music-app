@@ -59,13 +59,19 @@ const ArtistDetail = () => {
 
         <div className="flex flex-col">
           <h2 className="text-2xl font-black text-white mb-8 italic">About</h2>
-          <div className="p-8 bg-slate-950/50 border border-white/5 rounded-3xl">
-            <p className="text-slate-400 text-sm leading-relaxed font-sans">
-              Artist biography placeholder. This will contain the history, achievements, and unique style of the artist, rendered with cinematic legibility.
+          <div className="p-10 bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 blur-[80px] -z-10 group-hover:bg-secondary/10 transition-all" />
+            <p className="text-slate-400 text-sm leading-relaxed font-sans mb-8">
+              A visionary force in modern music, this artist has redefined the boundaries of sound through a unique blend of ethereal melodies and complex rhythms. 
+              Rising from the underground scene to global stardom, they have consistently pushed the envelope of production and songwriting...
             </p>
+            <button className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary hover:text-white transition-colors flex items-center gap-2">
+              Read Full Bio <span className="text-lg">→</span>
+            </button>
           </div>
         </div>
       </div>
+
 
       <div className="mt-20">
         <h2 className="text-2xl font-black text-white mb-8 italic">Related Artists</h2>
