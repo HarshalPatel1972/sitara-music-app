@@ -20,18 +20,12 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [appTime, setAppTime] = useState(0);
   const [volume, setVolume] = useState(0.3);
+  const [repeat, setRepeat] = useState(false);
+  const [shuffle, setShuffle] = useState(false);
   const audioRef = useRef(null);
 
-
-  // --- THE MOST IMPORTANT DEBUG LOG ---
-  // This will show us the entire structure of the song object we are receiving from Redux.
-  console.log(
-    "%c FULL activeSong OBJECT:",
-    "color: yellow; font-weight: bold;",
-    activeSong
-  );
-
   const audioSrc = activeSong?.hub?.actions?.[1]?.uri;
+
 
   useEffect(() => {
     if (audioRef.current) {
@@ -51,24 +45,26 @@ const MusicPlayer = () => {
     }
   }, [isPlaying, audioSrc]);
 
-
   const handlePlayPause = () => {
     if (!activeSong?.hub) return;
     dispatch(playPause(!isPlaying));
   };
 
   const handleNextSong = () => {
-    if (currentSongs.length) {
-      const nextIndex = (currentIndex + 1) % currentSongs.length;
-      dispatch(nextSong(nextIndex));
+    if (!shuffle) {
+      dispatch(nextSong((currentIndex + 1) % currentSongs.length));
+    } else {
+      dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
     }
   };
 
   const handlePrevSong = () => {
-    if (currentSongs.length) {
-      const prevIndex =
-        currentIndex === 0 ? currentSongs.length - 1 : currentIndex - 1;
-      dispatch(prevSong(prevIndex));
+    if (currentIndex === 0) {
+      dispatch(prevSong(currentSongs.length - 1));
+    } else if (shuffle) {
+      dispatch(prevSong(Math.floor(Math.random() * currentSongs.length)));
+    } else {
+      dispatch(prevSong(currentIndex - 1));
     }
   };
 
@@ -82,6 +78,10 @@ const MusicPlayer = () => {
       <div className="flex-1 flex flex-col items-center justify-center">
         <Controls
           isPlaying={isPlaying}
+          repeat={repeat}
+          setRepeat={setRepeat}
+          shuffle={shuffle}
+          setShuffle={setShuffle}
           handlePlayPause={handlePlayPause}
           handlePrevSong={handlePrevSong}
           handleNextSong={handleNextSong}
@@ -98,11 +98,13 @@ const MusicPlayer = () => {
         <audio
           ref={audioRef}
           src={audioSrc}
+          loop={repeat}
           onLoadedData={(event) => setDuration(event.target.duration)}
           onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
           onEnded={handleNextSong}
         />
       </div>
+
       <VolumeBar
         value={volume}
         min="0"
