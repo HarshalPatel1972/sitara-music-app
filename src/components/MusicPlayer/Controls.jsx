@@ -1,16 +1,25 @@
 // src/components/MusicPlayer/Controls.jsx
 import React from "react";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
-import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
+import { BsFillPlayFill, BsFillPauseFill, BsShuffle, BsArrowRepeat } from "react-icons/bs";
 
-// We need to install react-icons first! Run: npm install react-icons
 const Controls = ({
   isPlaying,
+  repeat,
+  setRepeat,
+  shuffle,
+  setShuffle,
   handlePlayPause,
   handlePrevSong,
   handleNextSong,
 }) => (
-  <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
+  <div className="flex items-center justify-around md:w-44 lg:w-64 2xl:w-96">
+    <BsArrowRepeat
+      size={20}
+      color={repeat ? "#8b5cf6" : "#475569"}
+      onClick={() => setRepeat((prev) => !prev)}
+      className="hidden sm:block cursor-pointer transition-colors"
+    />
     <MdSkipPrevious
       size={24}
       className="cursor-pointer text-slate-400 hover:text-white transition-colors"
@@ -36,7 +45,14 @@ const Controls = ({
       className="cursor-pointer text-slate-400 hover:text-white transition-colors"
       onClick={handleNextSong}
     />
+    <BsShuffle
+      size={20}
+      color={shuffle ? "#8b5cf6" : "#475569"}
+      onClick={() => setShuffle((prev) => !prev)}
+      className="hidden sm:block cursor-pointer transition-colors"
+    />
   </div>
+
 
 );
 
