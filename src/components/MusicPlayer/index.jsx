@@ -11,6 +11,8 @@ import Controls from "./Controls";
 import Seekbar from "./Seekbar";
 import Track from "./Track";
 import VolumeBar from "./VolumeBar";
+import { FiClock } from "react-icons/fi";
+
 
 const MusicPlayer = () => {
   const { activeSong, isPlaying, currentIndex, currentSongs } = useSelector(
@@ -105,13 +107,24 @@ const MusicPlayer = () => {
         />
       </div>
 
-      <VolumeBar
-        value={volume}
-        min="0"
-        max="1"
-        onChange={(event) => setVolume(event.target.value)}
-        setVolume={setVolume}
-      />
+      <div className="hidden lg:flex flex-1 items-center justify-end gap-6">
+        <div className="relative group">
+          <button className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2">
+            <span className="text-[9px] font-black uppercase tracking-widest hidden group-hover:block animate-slideup">Sleep Timer</span>
+            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 hover:border-primary/20">
+               <FiClock size={16} />
+            </div>
+          </button>
+        </div>
+        <VolumeBar
+          value={volume}
+          min="0"
+          max="1"
+          onChange={(event) => setVolume(event.target.value)}
+          setVolume={setVolume}
+        />
+      </div>
+
     </div>
 
   );
