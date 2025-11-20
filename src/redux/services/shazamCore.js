@@ -11,11 +11,13 @@ export const shazamCoreApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://shazam-core.p.rapidapi.com/",
     prepareHeaders: (headers) => {
-      // Securely set the API key for every request
-      headers.set("X-RapidAPI-Key", apiKey);
+      if (apiKey) {
+        headers.set("X-RapidAPI-Key", apiKey);
+      }
       headers.set("X-RapidAPI-Host", "shazam-core.p.rapidapi.com");
       return headers;
     },
+
   }),
   endpoints: (builder) => ({
     getTopCharts: builder.query({
