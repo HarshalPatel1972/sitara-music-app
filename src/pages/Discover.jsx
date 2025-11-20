@@ -10,6 +10,13 @@ const Discover = () => {
 
   if (isFetching) return <Loader title="Syncing with the charts..." />;
   if (error) return <Error />;
+  if (!data || data.length === 0) return (
+    <div className="w-full flex justify-center items-center min-h-[50vh]">
+      <h1 className="font-black text-xl text-slate-500 uppercase tracking-widest italic animate-pulse">
+        No tracks found in this sector.
+      </h1>
+    </div>
+  );
 
 
   return (
