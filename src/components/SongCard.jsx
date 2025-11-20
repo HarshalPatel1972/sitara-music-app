@@ -32,7 +32,8 @@ const SongCard = ({ song, i, data }) => {
         <img
           src={artworkUrl || "https://via.placeholder.com/400?text=No+Image"}
           alt="song_img"
-          className="w-full h-full rounded-xl object-cover shadow-lg"
+          loading="lazy"
+          className="w-full h-full rounded-xl object-cover shadow-lg transition-all duration-700 hover:scale-110"
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/400?text=No+Image";
           }}
