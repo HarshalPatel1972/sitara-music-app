@@ -2,7 +2,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { BsFillPlayFill } from "react-icons/bs";
+import { FiShare2, FiMoreHorizontal } from "react-icons/fi";
 import { setActiveSong } from "../redux/features/playerSlice";
+
 
 const SongCard = ({ song, i, data }) => {
   const dispatch = useDispatch();
@@ -25,10 +27,19 @@ const SongCard = ({ song, i, data }) => {
           className="absolute inset-0 z-10 flex justify-center items-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
           onClick={handlePlayClick}
         >
-          <div className="bg-primary p-3 rounded-full shadow-[0_0_20px_rgba(139,92,246,0.6)]">
-            <BsFillPlayFill size={30} className="text-white" />
+          <div className="absolute top-4 right-4 flex gap-2">
+            <div className="p-2 bg-slate-900/60 backdrop-blur-md rounded-lg hover:bg-slate-800 border border-white/5 transition-all">
+              <FiShare2 size={14} className="text-white" />
+            </div>
+            <div className="p-2 bg-slate-900/60 backdrop-blur-md rounded-lg hover:bg-slate-800 border border-white/5 transition-all">
+              <FiMoreHorizontal size={14} className="text-white" />
+            </div>
+          </div>
+          <div className="bg-primary p-4 rounded-full shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:scale-110 transition-all">
+            <BsFillPlayFill size={25} className="text-white ml-0.5" />
           </div>
         </div>
+
         <img
           src={artworkUrl || "https://via.placeholder.com/400?text=No+Image"}
           alt="song_img"
