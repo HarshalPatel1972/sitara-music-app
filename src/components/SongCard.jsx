@@ -21,7 +21,8 @@ const SongCard = ({ song, i, data }) => {
     .replace("{h}", "400");
 
   return (
-    <div className="flex flex-col w-[250px] p-4 bg-slate-900/40 backdrop-blur-xl border border-white/5 animate-slideup rounded-2xl cursor-pointer hover:bg-slate-800/60 hover:scale-[1.02] transition-all duration-300 group shadow-2xl">
+    <div className="flex flex-col w-[250px] p-4 bg-slate-900/40 backdrop-blur-xl border border-white/5 animate-slideup rounded-2xl cursor-pointer hover:bg-slate-800/60 transition-all duration-500 group shadow-2xl hover-tilt">
+
       <div className="relative w-full h-56">
         <div
           className="absolute inset-0 z-10 flex justify-center items-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
