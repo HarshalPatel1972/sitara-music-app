@@ -9,8 +9,12 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   return (
-    <div className="relative flex bg-background min-h-screen selection:bg-primary/30">
+    <div className="relative flex bg-background min-h-screen selection:bg-primary/30 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_70%)] pointer-events-none" />
+      
+      {/* Ambient Blobs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px] animate-pulse pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
 
       <Sidebar />
       <div className="flex-1 flex flex-col bg-background/30 backdrop-blur-sm">
