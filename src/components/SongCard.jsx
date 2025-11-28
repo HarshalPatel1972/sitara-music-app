@@ -39,14 +39,15 @@ const SongCard = ({ song, i, data }) => {
           }}
         />
       </div>
-      <div className="mt-5 flex flex-col">
-        <p className="font-black text-lg text-white truncate tracking-tight">
+      <div className="mt-5 flex flex-col space-y-1">
+        <p className="font-black text-xl text-white truncate tracking-tighter leading-tight italic text-glow">
           {attr.name || "Unknown Title"}
         </p>
-        <p className="text-xs font-black uppercase tracking-widest text-slate-500 mt-1 truncate">
+        <p className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-500 truncate">
           {attr.artistName || "Unknown Artist"}
         </p>
       </div>
+
     </div>
   );
 
