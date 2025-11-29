@@ -5,9 +5,10 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
   <div className="flex-1 flex items-center justify-start">
     <div
       className={`${
-        isPlaying && isActive ? "animate-spin-slow" : ""
+        isPlaying && isActive ? "animate-spin-slow animate-particle" : ""
       } hidden sm:block h-20 w-20 mr-6 relative group`}
     >
+
       <div className="absolute inset-0 rounded-full border-2 border-primary/20 group-hover:border-primary/50 transition-colors" />
       <img
         src={activeSong?.attributes?.artwork?.url
