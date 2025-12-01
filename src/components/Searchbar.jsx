@@ -15,9 +15,11 @@ const Searchbar = () => (
         id="search-field"
         placeholder="Search for tracks, artists..."
         type="search"
+        aria-label="Search tracks and artists"
         className="w-full bg-slate-950/80 border border-white/10 rounded-2xl py-4 pl-16 pr-6 text-sm font-sans placeholder:text-slate-600 focus:outline-none focus:border-primary/50 backdrop-blur-xl transition-all shadow-2xl relative z-10"
       />
     </div>
+
   </div>
 
 );
