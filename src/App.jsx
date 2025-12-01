@@ -9,7 +9,7 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   return (
-    <div className="relative flex bg-background min-h-screen">
+    <div className="relative flex bg-background min-h-screen selection:bg-primary/30">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_70%)] pointer-events-none" />
 
       <Sidebar />
@@ -18,12 +18,8 @@ const App = () => {
           <Searchbar />
         </header>
         <div className="px-10 h-[calc(100vh-112px)] overflow-y-auto custom-scrollbar flex xl:flex-row flex-col-reverse">
-
           <div className="flex-1 h-fit pb-40">
             <Discover />
-          </div>
-          <div className="xl:sticky relative top-0 h-fit">
-            {/* Right Sidebar */}
           </div>
         </div>
       </div>
@@ -33,7 +29,6 @@ const App = () => {
           <MusicPlayer />
         </div>
       )}
-
     </div>
   );
 };
