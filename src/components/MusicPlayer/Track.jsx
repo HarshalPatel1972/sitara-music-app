@@ -1,5 +1,6 @@
-// src/components/MusicPlayer/Track.jsx
 import React from "react";
+import Visualizer from "../Visualizer";
+
 
 const Track = ({ isPlaying, isActive, activeSong }) => (
   <div className="flex-1 flex items-center justify-start">
@@ -18,14 +19,18 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
         className="rounded-full p-1 shadow-2xl"
       />
     </div>
-    <div className="w-[50%]">
-      <p className="truncate text-white font-black text-xl tracking-tighter text-glow italic">
-        {activeSong?.attributes?.name || "No active Song"}
-      </p>
+    <div className="w-[50%] flex flex-col">
+      <div className="flex items-center gap-3">
+        <p className="truncate text-white font-black text-xl tracking-tighter text-glow italic">
+          {activeSong?.attributes?.name || "No active Song"}
+        </p>
+        {isPlaying && <Visualizer isPlaying={isPlaying} />}
+      </div>
       <p className="truncate text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mt-1">
         {activeSong?.attributes?.artistName || "No Artist"}
       </p>
     </div>
+
 
   </div>
 );
