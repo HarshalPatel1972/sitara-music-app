@@ -25,10 +25,11 @@ const App = () => {
       </div>
 
       {activeSong?.attributes && (
-        <div className="absolute h-32 bottom-0 left-0 right-0 flex animate-slideup bg-slate-950/80 backdrop-blur-3xl border-t border-white/5 z-[100] shadow-[0_-10px_50px_rgba(0,0,0,0.5)]">
+        <div className="absolute h-28 md:h-32 bottom-0 left-0 right-0 flex animate-slideup bg-slate-950/90 backdrop-blur-3xl border-t border-white/5 z-[100] shadow-[0_-10px_50px_rgba(0,0,0,0.5)]">
           <MusicPlayer />
         </div>
       )}
+
     </div>
   );
 };
