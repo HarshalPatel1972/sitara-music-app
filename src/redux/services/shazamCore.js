@@ -27,8 +27,10 @@ export const shazamCoreApi = createApi({
           country_code: "IN",
         },
       }),
+      keepUnusedDataFor: 3600, // Cache for 1 hour
     }),
   }),
+
 });
 
 export const { useGetTopChartsQuery } = shazamCoreApi;
